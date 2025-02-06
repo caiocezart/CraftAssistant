@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# 
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CraftAssistant", "CraftAssistant\CraftAssistant.csproj", "{6942853B-512E-414D-A42D-3E2E9C67B871}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExileCore2TexturesHandler", "TextureExtractor\ExileCore2TexturesHandler.csproj", "{80DCA873-0B86-4B33-9EB7-3352AA969258}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6942853B-512E-414D-A42D-3E2E9C67B871}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6942853B-512E-414D-A42D-3E2E9C67B871}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6942853B-512E-414D-A42D-3E2E9C67B871}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6942853B-512E-414D-A42D-3E2E9C67B871}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E209F41E-1DF0-4A50-AA86-1B8BC9A4BB05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E209F41E-1DF0-4A50-AA86-1B8BC9A4BB05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E209F41E-1DF0-4A50-AA86-1B8BC9A4BB05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E209F41E-1DF0-4A50-AA86-1B8BC9A4BB05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7A1FE24-E173-444A-A8EB-08548FD3A9D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7A1FE24-E173-444A-A8EB-08548FD3A9D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7A1FE24-E173-444A-A8EB-08548FD3A9D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7A1FE24-E173-444A-A8EB-08548FD3A9D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{071FFFC7-BC09-4922-9ABA-1E7BA2CD2784}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{071FFFC7-BC09-4922-9ABA-1E7BA2CD2784}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{071FFFC7-BC09-4922-9ABA-1E7BA2CD2784}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{071FFFC7-BC09-4922-9ABA-1E7BA2CD2784}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6C74B9C-647A-454E-9C45-BB537CAA5540}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6C74B9C-647A-454E-9C45-BB537CAA5540}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6C74B9C-647A-454E-9C45-BB537CAA5540}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6C74B9C-647A-454E-9C45-BB537CAA5540}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BFB3CF5-9B1A-4292-A60D-DC14DE4CB4E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BFB3CF5-9B1A-4292-A60D-DC14DE4CB4E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BFB3CF5-9B1A-4292-A60D-DC14DE4CB4E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BFB3CF5-9B1A-4292-A60D-DC14DE4CB4E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80DCA873-0B86-4B33-9EB7-3352AA969258}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80DCA873-0B86-4B33-9EB7-3352AA969258}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80DCA873-0B86-4B33-9EB7-3352AA969258}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80DCA873-0B86-4B33-9EB7-3352AA969258}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AACF026-D7C1-494B-AF94-58A5D15CF709}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AACF026-D7C1-494B-AF94-58A5D15CF709}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AACF026-D7C1-494B-AF94-58A5D15CF709}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AACF026-D7C1-494B-AF94-58A5D15CF709}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,9 @@
+﻿obj/
+bin/
+.idea/
+.vscode/
+Folder.*
+data/textures.zip
+data/example*
+test/
+Errors.txt

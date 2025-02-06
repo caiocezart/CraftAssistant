@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <OutputType>Library</OutputType>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Platforms>x64</Platforms>
+    <!--Don't bother setting anything to do with the output path, HUD will do it for you if you put the source code inside Plugins/Source-->
+    <!-- <DebugType>full</DebugType> -->
+    <!-- <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>   -->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--Rather than replacing this with absolute or relative paths, you should create an environment variable for wherever your HUD folder is-->
+    <Reference Include="ExileCore2">
+      <HintPath>$(exilecore2Package)\ExileCore2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GameOffsets2">
+      <HintPath>$(exilecore2Package)\GameOffsets2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ExileCore2CustomLogger" Version="1.0.3" />
+    <PackageReference Include="ImGui.NET" Version="1.90.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="2.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="data\poe.json" />
+    <Content Include="data\poe.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Remove="data\ExileCore2TexturesHandler.exe" />
+    <Content Include="data\ExileCore2TexturesHandler.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>
