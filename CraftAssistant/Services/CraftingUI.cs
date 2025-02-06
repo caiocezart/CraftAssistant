@@ -259,10 +259,9 @@ public class CraftingUI
 
                 ImGui.BeginChild($"{item.Id}", tabWindow, ImGuiChildFlags.Border);
 
-                // state.SetCurrentItem(item);
-
                 RenderUIItemDetails(item, state);
 
+                if(state.Status.Code == StatusCode.CraftingError) return;
                 ImGui.Dummy(new Vector2(0, _padding));
                 ImGui.Separator();
                 ImGui.Dummy(new Vector2(0, _padding));

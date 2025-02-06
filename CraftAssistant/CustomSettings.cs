@@ -111,11 +111,11 @@ public class CustomSettings
                          "Notes: \n\nTextures are optional and not required for the plugin to function.\n\n" +
                          "Currently only the standalone PoE version is supported.\n\n\n" +
                          "How to use: \n\n- Click the button below\n" + 
-                         "- Close Path of Exile\n" + 
+                         "- Close the game and ExileCore2\n" + 
                          "- Go back to the tool\n" + 
                          "- Select the folder where your game is installed\n" +
                          "- Click 'Extract Textures'\n" + 
-                         "- Open POE and ExileCore2 again\n" + 
+                         "- Open the game and ExileCore2 again\n" + 
                          "- Check this tab to see status if Textures are now available\n" +
                          "- Tick the 'Enable Textures' checkbox to use them in the plugin");
         ImGui.EndChild();

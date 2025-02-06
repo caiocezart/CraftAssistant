@@ -214,6 +214,8 @@ public partial class MainForm : Form
                 MessageBox.Show("Extraction completed successfully!", "Success",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                Application.Exit();
+
                 // Open Explorer and select the file
                 if (File.Exists(archiveZipPath))
                 {
