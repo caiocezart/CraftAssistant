@@ -213,7 +213,7 @@ public class CraftingUI
                 break;
         }
 
-        if(itemAction == "") return;
+        if (itemAction == "") return;
 
         ImGui.Text(itemAction);
         ImGui.SameLine();
@@ -261,7 +261,8 @@ public class CraftingUI
 
                 RenderUIItemDetails(item, state);
 
-                if(state.Status.Code == StatusCode.CraftingError) return;
+                if (state.Status.Code == StatusCode.CraftingError) return;
+                
                 ImGui.Dummy(new Vector2(0, _padding));
                 ImGui.Separator();
                 ImGui.Dummy(new Vector2(0, _padding));
@@ -281,7 +282,7 @@ public class CraftingUI
             {
                 _logger.Debug($"Tab closing requested: {item.FileName} (ID: {item.Id}, IsCurrentTab: {tabFocused})");
                 itemsToRemove.Add(item.Id);
-                
+
                 if (tabFocused)
                 {
                     var nextItem = items.FirstOrDefault(x => x.Id != item.Id);
@@ -324,13 +325,17 @@ public class CraftingUI
         );
 
         RenderUIItemImage(item, state);
-        RenderCraftingButtonsGrid(item, state);
+
+        if (state.Status.Code != StatusCode.CraftingError)
+        {
+            RenderCraftingButtonsGrid(item, state);
+        }
 
         ImGui.Dummy(new Vector2(0, _padding));
 
         RenderItemProperties(item);
 
-        if(state.Status.Code == StatusCode.CraftingError) return;
+        if (state.Status.Code == StatusCode.CraftingError) return;
 
         var lowestILvlAffix = item.Mods.OrderBy(mod => mod.Tier.ItemLevel).FirstOrDefault();
 
@@ -387,13 +392,13 @@ public class CraftingUI
         // Fallback image to text if no texture is available / enabled
         ImGui.PushStyleVar(ImGuiStyleVar.FrameBorderSize, 1.0f);
         ImGui.SetCursorPos(imagePos);
-        
+
         // Create child window for text
         ImGui.BeginChild("ItemNameBox", new Vector2(imageWidth, imageHeight), ImGuiChildFlags.Border);
-        
+
         // Calculate text wrapping width
         float wrapWidth = imageWidth - (ImGui.GetStyle().FramePadding.X * 2);
-        
+
         // Center text vertically and horizontally
         var text = item.Name;
         var textSize = ImGui.CalcTextSize(text, wrapWidth);
@@ -401,12 +406,12 @@ public class CraftingUI
             (imageWidth - textSize.X) * 0.5f,
             (imageHeight - textSize.Y) * 0.5f
         );
-        
+
         ImGui.SetCursorPos(textPos);
         ImGui.PushTextWrapPos(ImGui.GetCursorPos().X + wrapWidth);
         ImGui.TextWrapped(text);
         ImGui.PopTextWrapPos();
-        
+
         ImGui.EndChild();
         ImGui.PopStyleVar();
     }
@@ -450,10 +455,10 @@ public class CraftingUI
                     : ImGui.ColorConvertFloat4ToU32(new Vector4(1, 1, 1, 1)); // White by default
 
                 drawList.AddRect(min, max, borderColor);
-                if(state.CurrentUIState.EnableTextures && button.TextureId != 0)
+                if (state.CurrentUIState.EnableTextures && button.TextureId != 0)
                 {
                     drawList.AddImage(button.TextureId, min + new Vector2(1, 1), max + new Vector2(-1, -1), Vector2.Zero, Vector2.One, color);
-                }                
+                }
                 else
                 {
                     var shortName = button.Name.Length > 3 ? button.Name[..3] : button.Name;
