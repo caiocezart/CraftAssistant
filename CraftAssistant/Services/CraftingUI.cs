@@ -261,17 +261,23 @@ public class CraftingUI
 
                 RenderUIItemDetails(item, state);
 
-                if (state.Status.Code == StatusCode.CraftingError) return;
-                
-                ImGui.Dummy(new Vector2(0, _padding));
-                ImGui.Separator();
-                ImGui.Dummy(new Vector2(0, _padding));
+                if (state.Status.Code != StatusCode.CraftingError)
+                {
+                    ImGui.Dummy(new Vector2(0, _padding));
+                    ImGui.Separator();
+                    ImGui.Dummy(new Vector2(0, _padding));
 
-                RenderPoeDataAffixesTable(state, "[GAME DATA] Item Prefixes", item.PoeDataBaseGroup.Prefixes);
+                    RenderPoeDataAffixesTable(state, "[GAME DATA] Item Prefixes", item.PoeDataBaseGroup.Prefixes); ImGui.Dummy(new Vector2(0, _padding));
 
-                ImGui.Dummy(new Vector2(0, _padding));
+                    ImGui.Separator();
+                    ImGui.Dummy(new Vector2(0, _padding));
 
-                RenderPoeDataAffixesTable(state, "[GAME DATA] Item Suffixes", item.PoeDataBaseGroup.Suffixes);
+                    RenderPoeDataAffixesTable(state, "[GAME DATA] Item Prefixes", item.PoeDataBaseGroup.Prefixes);
+
+                    ImGui.Dummy(new Vector2(0, _padding));
+
+                    RenderPoeDataAffixesTable(state, "[GAME DATA] Item Suffixes", item.PoeDataBaseGroup.Suffixes);
+                }
 
                 ImGui.EndChild();
 
