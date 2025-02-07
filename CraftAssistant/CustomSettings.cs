@@ -36,16 +36,6 @@ public class CustomSettings
 
         // ImGui.TextColored(_statusColors[poeDataMessage], poeDataMessage);
 
-        // ImGui.Spacing();
-
-        // var pluginDir = Main.Settings.PluginDataDir;
-
-        // ImGui.Text("Plugin data directory:");
-        // if (ImGui.InputText("##plugindir", ref pluginDir, 256))
-        // {
-        //     Main.Settings.PluginDataDir = pluginDir;
-        // }
-
         // var poeDataFileName = Main.Settings.PoeDataFileName;
         // ImGui.Text("Poe data file name:");
         // if (ImGui.InputText("##poedatafilename", ref poeDataFileName, 256))
@@ -78,7 +68,18 @@ public class CustomSettings
             Main.Settings.EnableTextures = enableTextures;
             Main.CheckTexturesStatus();
         }
-        ImGui.EndDisabled();
+        ImGui.EndDisabled();       
+
+        ImGui.Spacing();
+
+        var pluginDir = Main.Settings.PluginDataDir;
+        ImGui.Text("Plugin data directory:");
+        if (ImGui.InputText("##plugindir", ref pluginDir, 256))
+        {
+            Main.Settings.PluginDataDir = pluginDir;
+        }   
+
+        ImGui.Spacing();
 
         var archiveName = Main.Settings.TexturesZipName;
         ImGui.Text("Textures Archive Name:");
@@ -131,7 +132,7 @@ public class CustomSettings
             else
             {
                 _texturesExtractorError = true;
-                _texturesExtractorMessage = "Error: Textures Handler executable not found.";
+                _texturesExtractorMessage = $"Error: Textures Handler executable not found at {texturesHandlerExe}";
             }
         }
 
