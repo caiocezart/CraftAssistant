@@ -25,6 +25,10 @@ public static class TexturesHandler
         ExtractContent(contentPath, nodePath, tempExtractionPath);
 
         // Create the final archive        
+        if(File.Exists(archiveZipPath))
+        {
+            File.Delete(archiveZipPath);
+        }
         CreateTextureArchive(tempExtractionPath, archiveZipPath);
 
         // Delete the temporary extraction path
