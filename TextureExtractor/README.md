@@ -4,7 +4,7 @@ A utility library (LibGGPK3 wrapper) designed specifically for ExileCore2 plugin
 
 ## Features
 
-- Support for GGPK extraction (standalone clients). Steam bundle version to be released soon.
+- Supports both standalone and steam Game versions
 - Automatic detection of game installation type
 - DDS to PNG conversion
 - Texture archive creation for plugin distribution

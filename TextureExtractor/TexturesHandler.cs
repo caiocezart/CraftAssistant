@@ -15,16 +15,14 @@ public static class TexturesHandler
         return File.Exists(archiveZipPath);
     }
 
-    public static void ExtractGGPKTexturesToArchive(string ggpkPath, string nodePath, string archiveZipPath)
+    public static void ExtractTexturesToArchive(string contentPath, string nodePath, string archiveZipPath)
     {
-        ggpkPath = Path.Combine(ggpkPath, "Content.ggpk");
-        
         var currentDirectory = AppDomain.CurrentDomain.BaseDirectory;
         var tempExtractionPath = Path.Combine(currentDirectory, "temp");
         EnsureDirectoryExists(tempExtractionPath);
 
         // Extract and convert textures
-        ExtractFromGGPK(ggpkPath, nodePath, tempExtractionPath);
+        ExtractContent(contentPath, nodePath, tempExtractionPath);
 
         // Create the final archive        
         CreateTextureArchive(tempExtractionPath, archiveZipPath);
@@ -34,7 +32,6 @@ public static class TexturesHandler
     }
 
     public static Image<Rgba32> LoadImageFromArchive(string archiveZipPath, string imagePath)
-
     {
         string normalizedSearchPath = imagePath.Trim()
             .ToLowerInvariant()
@@ -59,11 +56,24 @@ public static class TexturesHandler
         return null;
     }
 
-    private static void ExtractFromGGPK(string ggpkPath, string nodePath, string tempExtractionPath)
+    private static void ExtractContent(string contentPath, string nodePath, string tempExtractionPath)
     {
-        var ggpk = new BundledGGPK(ggpkPath, false);
-        var index = ggpk.Index;
-        index.ParsePaths();
+        LibBundle3.Index? index = null;
+        if (contentPath.EndsWith(".ggpk"))
+        {
+            var ggpk = new BundledGGPK(contentPath, false);
+            index = ggpk.Index;
+            index.ParsePaths();
+        }
+        else if (contentPath.EndsWith(".index.bin"))
+        {
+            index = new LibBundle3.Index(contentPath, false);// false to parsePaths manually
+            index.ParsePaths();
+        }
+        else
+        {
+            throw new ArgumentException("Invalid content path", nameof(contentPath));
+        }
 
         foreach (var file in index.Files)
         {
@@ -119,7 +129,7 @@ public static class TexturesHandler
     }
 
     private static void CreateTextureArchive(string tempExtractionPath, string archiveZipPath)
-    {  
+    {
         using var archive = ZipFile.Open(archiveZipPath, ZipArchiveMode.Create);
         foreach (var file in Directory.GetFiles(tempExtractionPath, "*.png", SearchOption.AllDirectories))
         {

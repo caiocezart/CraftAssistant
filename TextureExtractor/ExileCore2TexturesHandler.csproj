@@ -32,6 +32,6 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy /Y $(TargetDir)publish\ExileCore2TexturesHandler.exe ..\CraftAssistant\data" />
+    <Exec Command="xcopy /Y $(TargetDir)\ExileCore2TexturesHandler.exe ..\CraftAssistant\data" />
   </Target>
 </Project>

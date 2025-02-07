@@ -42,6 +42,8 @@ public partial class MainForm : Form
     private string contentPath = string.Empty;
     private string outputPath = string.Empty;
     private bool standaloneVersion = true;
+    private string standaloneFile = "Content.ggpk";
+    private string steamFile = "Bundles2/_.index.bin";
 
     public MainForm()
     {
@@ -143,21 +145,26 @@ public partial class MainForm : Form
                     contentPath = dialog.SelectedPath;
                     txtGameFolder.Text = contentPath;
 
-                    if (File.Exists(Path.Combine(contentPath, "Content.ggpk")))
+                    if (File.Exists(Path.Combine(contentPath, standaloneFile)))
                     {
                         standaloneVersion = true;
-                        btnExtract.Enabled = true;
+                        contentPath = Path.Combine(contentPath, standaloneFile);
+                    }
+                    else if (File.Exists(Path.Combine(contentPath, steamFile)))
+                    {
+                        standaloneVersion = false;
+                        contentPath = Path.Combine(contentPath, steamFile);
                     }
                     else
                     {
-                        standaloneVersion = false;
                         btnExtract.Enabled = false;
-                        MessageBox.Show("Steam version detected (or wrong game installation path) - NOT SUPPORTED YET", "Error",
+                        MessageBox.Show("Invalid game installation path", "Error",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
                     UpdateExtractButton();
                 }
+
             }
         };
 
@@ -200,14 +207,11 @@ public partial class MainForm : Form
                 {
                     loadingForm.UpdateMessage("Reading Game Content...");
 
-                    if (standaloneVersion)
-                    {
-                        TexturesHandler.ExtractGGPKTexturesToArchive(
-                            ggpkPath: contentPath,
-                            nodePath: "Art/2DItems".ToLower().Trim(),
-                            archiveZipPath: archiveZipPath
-                        );
-                    }
+                    TexturesHandler.ExtractTexturesToArchive(
+                        contentPath: contentPath,
+                        nodePath: "Art/2DItems".ToLower().Trim(),
+                        archiveZipPath: archiveZipPath
+                    );
                 });
 
                 loadingForm.Close();
@@ -244,7 +248,7 @@ public partial class MainForm : Form
         void UpdateExtractButton()
         {
             btnExtract.Enabled = !string.IsNullOrEmpty(contentPath) &&
-                               !string.IsNullOrEmpty(outputPath) && standaloneVersion;
+                               !string.IsNullOrEmpty(outputPath);
         }
     }
 }

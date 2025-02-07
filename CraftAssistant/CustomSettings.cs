@@ -109,7 +109,7 @@ public class CustomSettings
                          "The tool can be found where this plugin was compiled. You only need to run it once (unless you are missing textures).\n\n" +
                          "You can click the button below to run the tool or go to the plugin folder to run it manually.\n\n" +
                          "Notes: \n\nTextures are optional and not required for the plugin to function.\n\n" +
-                         "Currently only the standalone PoE version is supported.\n\n\n" +
+                         "Supports both standalone and steam game versions.\n\n\n" +
                          "How to use: \n\n- Click the button below\n" + 
                          "- Close the game and ExileCore2\n" + 
                          "- Go back to the tool\n" + 

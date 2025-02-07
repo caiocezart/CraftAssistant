@@ -15,7 +15,7 @@ A new Path of Exile crafting helper plugin for ExileCore2! This is an early vers
 
 **Texture Support:**
 
-- Currently supports standalone PoE version only
+- Supports both standalone and steam Game versions
 - Textures are optional - plugin works fine without them
 - To enable textures:
   - Compile and run the included ExileCore2TexturesHandler.exe
@@ -35,7 +35,6 @@ A new Path of Exile crafting helper plugin for ExileCore2! This is an early vers
 - Crafting simulation
 - More detailed mod analysis
 - Better UI/UX improvements
-- Steam version texture support
 
 ## Thanks
 
