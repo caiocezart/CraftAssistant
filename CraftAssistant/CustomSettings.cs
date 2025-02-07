@@ -113,6 +113,8 @@ public class CustomSettings
                          "Supports both standalone and steam game versions.\n\n\n" +
                          "How to use: \n\n- Click the button below\n" + 
                          "- Close the game and ExileCore2\n" + 
+                         "  - If you have both standalone and steam versions installed, you can select the folder version that you are not running,\n" +
+                         "    so you don't need to close the game.\n" +
                          "- Go back to the tool\n" + 
                          "- Select the folder where your game is installed\n" +
                          "- Click 'Extract Textures'\n" + 
